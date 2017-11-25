@@ -1,0 +1,4 @@
+flask
+pymongo==3.3
+bcrypt
+bson
