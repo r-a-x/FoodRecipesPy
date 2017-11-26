@@ -12,6 +12,4 @@ class ImageService:
     @staticmethod
     def post_image(image):
         status, path = image_path_generator.store_image(image)
-        if status:
-            return {"path": str(path)}
-        return {'path': None}
+        return {"path": str(path)}

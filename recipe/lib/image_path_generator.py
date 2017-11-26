@@ -20,4 +20,4 @@ def store_image(image):
         return True, PATH + name
     except Exception as e:
         print(e)
-        return False, None
+        return False, e
