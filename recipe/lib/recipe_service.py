@@ -2,16 +2,10 @@ import os
 from flask import g
 from bson.json_util import dumps
 
+
 class RecipeService:
     def __init__(self):
         pass
-
-    @staticmethod
-    def get_env_variable(key):
-        try:
-            return os.environ[key]
-        except Exception as _:
-            return None
 
     @staticmethod
     def get_recipe():

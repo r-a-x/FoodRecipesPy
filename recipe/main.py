@@ -27,6 +27,12 @@ def optional_param(key):
     return g.json_body[key]
 
 
+def file_param(key):
+    if key in request.files:
+        return request.files[key]
+    raise Exception("File not present in the request")
+
+
 @app.before_request
 def init_mongo():
     g.mongo = MongoClient(ConfigService.get_mongo_host(), 27017).food_recipes
@@ -40,6 +46,11 @@ def unwind_json():
 @app.route("/api", methods=["GET"])
 def get_hello():
     return jsonify({'admin': 'hello'})
+
+
+@app.route("/api/image", methods=["POST"])
+def post_image():
+    return jsonify(ImageService.post_image(file_param('image')))
 
 
 @app.route("/api/recipe", methods=["GET"])
