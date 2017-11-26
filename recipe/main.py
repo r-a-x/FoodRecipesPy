@@ -2,7 +2,9 @@ from flask import Flask, g, request
 from flask.json import jsonify
 from pymongo import MongoClient
 
-from lib import *
+from lib.config_service import ConfigService
+from lib.image_service import ImageService
+from lib.recipe_service import RecipeService
 
 app = Flask(__name__)
 
